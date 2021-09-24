@@ -54,10 +54,10 @@ app.get(`/define`,async (req, res) => {
             console.log(e.data)
         
     }, (error) => {
-        /*res.render(`main-ub.ejs`, {
+        res.render(`main-ub.ejs`, {
             urban: urban
-        });*/
-        res.send("No Definition")
+        });
+        //res.send("No Definition")
       });
     });
 
