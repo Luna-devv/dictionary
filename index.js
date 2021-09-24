@@ -5,6 +5,8 @@ const path = require(`path`);
 let axios = require('axios');
 const port = 9999;
 const app = express();
+var favicon = require('express-favicon');
+app.use(favicon(__dirname + '/public/images/profile.png'));
 
 app.use(layout);
 app.enable('strict routing');
@@ -52,12 +54,16 @@ app.get(`/define`,async (req, res) => {
             console.log(e.data)
         
     }, (error) => {
-        /*res.render(`main-ub.ejs`, {
+        res.render(`main-ub.ejs`, {
             urban: urban
-        });*/
-        res.send("No Definition")
+        });
+        //res.send("No Definition")
       });
     });
+
+app.get(`*`, (req, res) => {
+    res.redirect(`/`)
+})
 
 app.listen(port, function (err) {
     if (err) return console.log(err);
