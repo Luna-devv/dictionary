@@ -19,12 +19,10 @@
         <div style='padding-top: 1rem;'>
             <div style='display: flex;'>
                 <word>
-                    <bold class='main-text'> <%- JSON.stringify(result.word).replace(/(?:")/g, '') %> </bold> 
-                    <a class='sub-text'> /<%- JSON.stringify(result.pronunciation).replace(/(?:")/g, '') %>/ </a>
+                    <bold class='main-text'> <%- JSON.stringify(word).replace(/(?:")/g, '') %> </bold> 
+                    
                 </word>
-                <a class='picture'>
-                    <img src='<%- JSON.stringify(result.image_url) %>' als='picture' class='spicutes' draggable=false>
-                </a>
+               
             </div>
         </div>
 

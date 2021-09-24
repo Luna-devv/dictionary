@@ -55,7 +55,8 @@ app.get(`/define`,async (req, res) => {
         
     }, (error) => {
         res.render(`main-ub.ejs`, {
-            urban: urban
+            urban: urban,
+            word: req.query.q
         });
         //res.send("No Definition")
       });
