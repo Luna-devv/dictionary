@@ -1,0 +1,42 @@
+<head>
+    <title>Better Dictionary</title>
+</head>
+
+<body>
+    <p class="main-text" style="text-align: center; margin-top: 2rem;">Better Dictionary</p>
+    <p class="sub-text" style="text-align: center;">
+        A simple dictionary created using NodeJS and express web app. <br />
+        Note that this is a fun project and will not be continuously improved, even if we do our best. <br />
+        Check out our private portfolios for informations about us <a class='saho' href='https://tayronm.xyz'>Tayron</a> & <a class='saho' href='https://xyna.space/@Luna'>Luna</a>.
+    </p>
+    
+    <footer class='sub-text center-footer' style='margin-top: 1rem;'>
+        Sources: <a href='https://owlbot.info' class='saho'>owlbot.info</a>, <a href='https://www.urbandictionary.com/' class='saho'>urbandictionary.com</a>
+    </footer>
+</body>
+<script>
+    async function autocompleter() {
+        fetch("https://qdex.herokuapp.com/api/v1/autocomplete?q=" + document.getElementById("search").value)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data.autocomplete);
+                let num = 0;
+                data.autocomplete.forEach(r => {
+                    num ++;
+                    let ac = document.getElementById(`ac${num}`);
+                    ac.innerHTML = JSON.stringify(r).replace(/(?:")/g, '');
+                });
+            });
+    };
+    var input = document.getElementById("search");
+    input.addEventListener("keyup", function (event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            yes();
+        };
+    });
+    function yes() {
+        if(document.getElementById("search").value.size < 2) return console.log("Oof");
+        window.location.replace(`/define?q=` + document.getElementById("search").value);
+    };
+</script>

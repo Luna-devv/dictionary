@@ -1,0 +1,70 @@
+<head>
+    <title>Define <%- JSON.stringify(result.word) %> | Better Dictionary </title>
+</head>
+
+<body>
+    <div style='margin-left: 2%;'>
+        
+        <div style='padding-top: 1rem;'>
+            <div style='display: flex;'>
+                <word>
+                    <bold class='main-text'> <%- JSON.stringify(result.word).replace(/(?:")/g, '') %> </bold> 
+                    <a class='sub-text'> /<%- JSON.stringify(result.pronunciation).replace(/(?:")/g, '') %>/ </a>
+                </word>
+                <a class='picture'>
+                    <img src='<%- JSON.stringify(result.image_url) %>' als='picture' class='spicutes' draggable=false>
+                </a>
+            </div>
+        </div>
+
+        <div class='sub-text' style='color: #e0e5e9''>
+            <%- JSON.stringify(urban[0].definition).replace(/(?:")/g, '').replace(/(?:\n)/g, '<br />') %>
+        </div>
+        <div class='sub-text' style='font-size: 24px;''>
+            - <%- JSON.stringify(urban[0].example) %>
+        </div>
+
+        <br />
+        <definitions>
+            <% result.definitions.forEach(function(d){ %>
+                <div>
+                    <div class='main'>
+                        <div class="sub-text" style='font-size: 18px; color: #d0d4d6'>
+                            <%- d.type -%>
+                        </div>
+                        <div class='sub-text' style='color: #cbd2d8;'>
+                            <%- d.definition.replace(/(?:â)/g, '"').replace(/(?:â)/g, '"') -%>
+                        </div>
+                        <div class='sub-text' style='font-size: 18px;'>
+                            - "<%- d.example -%>"
+                        </div>
+                    </div>
+                </desc>
+
+                </div>
+            <% }); %>
+        </definitions>
+        <br />
+        <div class='sub-text center-this-shit' style='color: #e0e5e9''>
+            <strong>More Urban Dictionary Results</strong>
+        </div>
+        <br />
+        <definitions>
+            <% urban.forEach(function(d){ %>
+                <div>
+                    <div class='main'>
+                        
+                        <div class='sub-text' style='color: #cbd2d8;'>
+                            <%- d.definition.replace(/(?:â)/g, '"').replace(/(?:â)/g, '"') -%>
+                        </div>
+                        <div class='sub-text' style='font-size: 18px;'>
+                            - "<%- d.example -%>"
+                        </div>
+                    </div>
+                </desc>
+
+                </div>
+            <% }); %>
+        </definitions>
+    </div>
+</body>
