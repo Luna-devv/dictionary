@@ -27,10 +27,10 @@
         </div>
 
         <div class='sub-text' style='color: #e0e5e9''>
-            <%- JSON.stringify(urban[0].definition).replace(/(?:")/g, '').replace(/(?:\n)/g, '<br />') %>
+            <%- JSON.stringify(urban[0].definition.replace(/(?:")/g, '').replace(/(?:\n)/g, '<br />').replace(/(?:\r)/g, '')).replace(/(?:")/g, '').replace(/(?:\n)/g, '<br />') %>
         </div>
         <div class='sub-text' style='font-size: 24px;''>
-            - <%- JSON.stringify(urban[0].example) %>
+            - <%- JSON.stringify(urban[0].example.replace(/(?:")/g, '').replace(/(?:\n)/g, '<br />').replace(/(?:\r)/g, '')) %>
         </div>
 
         
@@ -45,10 +45,10 @@
                     <div class='main'>
                         
                         <div class='sub-text' style='color: #cbd2d8;'>
-                            <%- d.definition.replace(/(?:â)/g, '"').replace(/(?:â)/g, '"') -%>
+                            <%- d.definition.replace(/(?:â)/g, '"').replace(/(?:â)/g, '"').replace(/(?:")/g, '').replace(/(?:\n)/g, '<br />').replace(/(?:\r)/g, '') -%>
                         </div>
                         <div class='sub-text' style='font-size: 18px;'>
-                            - "<%- d.example -%>"
+                            - "<%- d.example.replace(/(?:")/g, '').replace(/(?:\n)/g, '<br />').replace(/(?:\r)/g, '') -%>"
                         </div>
                     </div>
                 </desc>

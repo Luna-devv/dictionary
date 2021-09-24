@@ -25,29 +25,3 @@
         Sources: <a href='https://owlbot.info' class='saho'>owlbot.info</a>, <a href='https://www.urbandictionary.com/' class='saho'>urbandictionary.com</a>
     </footer>
 </body>
-<script>
-    async function autocompleter() {
-        fetch("https://qdex.herokuapp.com/api/v1/autocomplete?q=" + document.getElementById("search").value)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data.autocomplete);
-                let num = 0;
-                data.autocomplete.forEach(r => {
-                    num ++;
-                    let ac = document.getElementById(`ac${num}`);
-                    ac.innerHTML = JSON.stringify(r).replace(/(?:")/g, '');
-                });
-            });
-    };
-    var input = document.getElementById("search");
-    input.addEventListener("keyup", function (event) {
-        if (event.keyCode === 13) {
-            event.preventDefault();
-            yes();
-        };
-    });
-    function yes() {
-        if(document.getElementById("search").value.size < 2) return console.log("Oof");
-        window.location.replace(`/define?q=` + document.getElementById("search").value);
-    };
-</script>
