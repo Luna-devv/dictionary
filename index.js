@@ -30,12 +30,12 @@ const ud = require('urban-dictionary')
 
 
 app.get(`/define`,async (req, res) => {
-    if(!req.query.word){
+    if(req.query.q === undefined || req.query.q === null){
         return res.render(`notfound.ejs`, {
             
             word: req.query.q
         });
-    }
+    }else{
     let urban = undefined
     await ud.define(req.query.q).then((results) => {
         urban = results
@@ -77,6 +77,7 @@ app.get(`/define`,async (req, res) => {
 
         //res.send("No Definition")
       });
+    }
     });
 
 app.get(`*`, (req, res) => {
