@@ -30,7 +30,12 @@ const ud = require('urban-dictionary')
 
 
 app.get(`/define`,async (req, res) => {
-    console.log(req.query.q)
+    if(!req.query.word){
+        return res.render(`notfound.ejs`, {
+            
+            word: req.query.q
+        });
+    }
     let urban = undefined
     await ud.define(req.query.q).then((results) => {
         urban = results
@@ -46,18 +51,30 @@ app.get(`/define`,async (req, res) => {
                 "Authorization": `Token 3ba940c0a6b0afd7a3813bc27930c864ca08fd6b`
             }
         }).then((e) => {
-            
+            if(urban){
             res.render(`main.ejs`, {
                 result: e.data,
                 urban: urban
             });
-            console.log(e.data)
-        
+            }else{
+                res.render(`main-noub.ejs`, {
+                    result: e.data,
+                    
+                });
+            }
     }, (error) => {
+        if(urban){
         res.render(`main-ub.ejs`, {
             urban: urban,
             word: req.query.q
         });
+    }else{
+        res.render(`notfound.ejs`, {
+            
+            word: req.query.q
+        });
+    }
+
         //res.send("No Definition")
       });
     });

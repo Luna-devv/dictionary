@@ -1,0 +1,55 @@
+<head>
+    <title>Define <%- JSON.stringify(result.word) %> | Better Dictionary </title>
+    <meta name="description" content="A Dictionary but Better. » Search for <%- result.word %>" />
+
+    <meta name="twitter:title" content="<%- result.word %> on Better Dictionary" />
+    <meta name="twitter:description" content="A Dictionary but Better. » Search for <%- result.word %>" />
+    <meta name="twitter:image" content="https://media.discordapp.net/attachments/856582344147075082/891042513480200212/profile.png" />
+
+    <meta property='og:title' content='<%- result.word %> on Better Dictionary' />
+    <meta property='og:type' content="website" />
+    <meta property='og:description' content='A Dictionary but Better. » Search for <%- result.word %>' />
+    <meta property="og:image" content='https://media.discordapp.net/attachments/856582344147075082/891042513480200212/profile.png' />
+    <meta name="theme-color" content="#4C95CA" />
+</head>
+
+<body>
+    <div style='margin-left: 2%;'>
+        
+        <div style='padding-top: 1rem;'>
+            <div style='display: flex;'>
+                <word>
+                    <bold class='main-text'> <%- JSON.stringify(result.word).replace(/(?:")/g, '') %> </bold> 
+                    <a class='sub-text'> /<%- JSON.stringify(result.pronunciation).replace(/(?:")/g, '') %>/ </a>
+                </word>
+                <a class='picture'>
+                    <img src='<%- JSON.stringify(result.image_url) %>' als='picture' class='spicutes' draggable=false>
+                </a>
+            </div>
+        </div>
+
+        
+        <br />
+        <definitions>
+            <% result.definitions.forEach(function(d){ %>
+                <div>
+                    <div class='main'>
+                        <div class="sub-text" style='font-size: 18px; color: #d0d4d6'>
+                            <%- d.type -%>
+                        </div>
+                        <div class='sub-text' style='color: #cbd2d8;'>
+                            <%- d.definition.replace(/(?:â)/g, '"').replace(/(?:â)/g, '"') -%>
+                        </div>
+                        <div class='sub-text' style='font-size: 18px;'>
+                            - "<%- d.example -%>"
+                        </div>
+                    </div>
+                </desc>
+
+                </div>
+            <% }); %>
+        </definitions>
+        
+        
+    </div>
+</body>

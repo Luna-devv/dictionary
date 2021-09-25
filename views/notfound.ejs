@@ -1,0 +1,37 @@
+<head>
+    <title>Define <%- JSON.stringify(word) %> | Better Dictionary </title>
+    <meta name="description" content="A Dictionary but Better. » Search for <%- word %>" />
+
+    <meta name="twitter:title" content="<%- word %> on Better Dictionary" />
+    <meta name="twitter:description" content="A Dictionary but Better. » Search for <%- word %>" />
+    <meta name="twitter:image" content="https://media.discordapp.net/attachments/856582344147075082/891042513480200212/profile.png" />
+
+    <meta property='og:title' content='<%- word %> on Better Dictionary' />
+    <meta property='og:type' content="website" />
+    <meta property='og:description' content='A Dictionary but Better. » Search for <%- word %>' />
+    <meta property="og:image" content='https://media.discordapp.net/attachments/856582344147075082/891042513480200212/profile.png' />
+    <meta name="theme-color" content="#4C95CA" />
+</head>
+
+<body>
+    <div style='margin-left: 2%;'>
+        
+        <div style='padding-top: 1rem;'>
+            <div style='display: flex;'>
+                <word>
+                    <bold class='main-text'> <%- JSON.stringify(word).replace(/(?:")/g, '') %> </bold> 
+                  
+                </word>
+                
+            </div>
+        </div>
+
+        <div class='sub-text center-this-shit' style='color: #e0e5e9''>
+            <strong>No Definitions Found :(</strong>
+        </div>
+        <br />
+        
+        
+        
+    </div>
+</body>
